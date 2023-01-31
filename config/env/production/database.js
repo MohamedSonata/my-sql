@@ -1,12 +1,16 @@
 module.exports = ({ env }) => ({   connection: {
     client: "mysql",
     connection: {
-      host: env("DATABASE_HOST", "localhost"),
+      host: env("DATABASE_HOST", "127.0.0.1"),
       port: env("DATABASE_PORT", 25060),
-      database: env("DATABASE_NAME", "default"),
-      user: env("DATABASE_USERNAME", "root"),
-      password: env("DATABASE_PASSWORD", ""),
+      database: env("DATABASE_NAME", "strapi"),
+      user: env("DATABASE_USERNAME", "strapi"),
+      password: env("DATABASE_PASSWORD", "strapi"),
+      ssl:{
+        ca:env('DATABASE_CA')
+      }
     },
-    useNullAsDefault: true,   
+    useNullAsDefault: true,
+    debug:false   
     }, 
    });
